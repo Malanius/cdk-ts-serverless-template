@@ -1,0 +1,19 @@
+import { Aspects, Stage, type StageProps, Tag } from 'aws-cdk-lib';
+import type { Construct } from 'constructs';
+
+interface AppStageProps extends StageProps {
+  appName: string;
+}
+
+export class AppStage extends Stage {
+  constructor(scope: Construct, id: string, props: AppStageProps) {
+    super(scope, id, props);
+    const { appName } = props;
+    const appStage = this.stageName;
+
+    // TODO: define your application stacks here
+
+    Aspects.of(this).add(new Tag('project', appName));
+    Aspects.of(this).add(new Tag('env', appStage));
+  }
+}
