@@ -25,12 +25,6 @@ const project = new awscdk.AwsCdkTypeScriptApp({
 
   packageManager: NodePackageManager.BUN,
 
-  // scripts: {
-  //   prepare: 'npx lefthook install',
-  //   check: 'npx @biomejs/biome check --write',
-  //   'check:staged': 'npx @biomejs/biome check --write --staged',
-  // },
-
   projenrcTs: true,
   tsconfig: {
     compilerOptions: {
@@ -83,14 +77,12 @@ const project = new awscdk.AwsCdkTypeScriptApp({
     'zod@~4',
   ],
   devDeps: [
-    'bun-types',
     '@commitlint/config-conventional',
     '@types/aws-lambda',
+    'bun-types',
     'commitlint',
     'cz-conventional-changelog',
     'lefthook',
-    'ts-node',
-    'tsconfig-paths',
   ],
 });
 

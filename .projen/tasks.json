@@ -257,7 +257,7 @@
             "--peer",
             "--no-deprecated",
             "--dep=dev,prod,peer,optional",
-            "--filter=@commitlint/config-conventional,@types/aws-lambda,@types/node,bun-types,commitlint,cz-conventional-changelog,esbuild,lefthook,projen,ts-node,tsconfig-paths,typescript"
+            "--filter=@commitlint/config-conventional,@types/aws-lambda,@types/node,bun-types,commitlint,cz-conventional-changelog,esbuild,lefthook,projen,ts-node,typescript"
           ]
         },
         {
@@ -279,7 +279,6 @@
             "lefthook",
             "projen",
             "ts-node",
-            "tsconfig-paths",
             "typescript",
             "@aws-lambda-powertools/batch",
             "@aws-lambda-powertools/logger",

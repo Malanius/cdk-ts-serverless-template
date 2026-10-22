@@ -51,10 +51,6 @@
       "type": "build"
     },
     {
-      "name": "tsconfig-paths",
-      "type": "build"
-    },
-    {
       "name": "typescript",
       "type": "build"
     },
