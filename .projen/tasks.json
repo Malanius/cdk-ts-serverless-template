@@ -1,11 +1,20 @@
 {
+  "manifestVersion": 3,
+  "env": {
+    "PATH": "$(pnpm -c exec \"node --print process.env.PATH\")"
+  },
   "tasks": {
     "biome": {
       "name": "biome",
       "description": "Runs Biome against the codebase",
       "steps": [
         {
-          "exec": "biome check --no-errors-on-unmatched --write",
+          "execArgs": [
+            "biome",
+            "check",
+            "--no-errors-on-unmatched",
+            "--write"
+          ],
           "receiveArgs": true
         }
       ]
@@ -38,22 +47,6 @@
       "name": "bundle",
       "description": "Prepare assets"
     },
-    "check": {
-      "name": "check",
-      "steps": [
-        {
-          "exec": "npx @biomejs/biome check --write"
-        }
-      ]
-    },
-    "check:staged": {
-      "name": "check:staged",
-      "steps": [
-        {
-          "exec": "npx @biomejs/biome check --write --staged"
-        }
-      ]
-    },
     "clobber": {
       "name": "clobber",
       "description": "hard resets to HEAD of origin and cleans the local repo",
@@ -62,22 +55,35 @@
       },
       "steps": [
         {
-          "exec": "git checkout -b scratch",
+          "execArgs": [
+            "git",
+            "checkout",
+            "-b",
+            "scratch"
+          ],
           "name": "save current HEAD in \"scratch\" branch"
         },
         {
-          "exec": "git checkout $BRANCH"
+          "exec": "git checkout \"$BRANCH\""
         },
         {
-          "exec": "git fetch origin",
+          "execArgs": [
+            "git",
+            "fetch",
+            "origin"
+          ],
           "name": "fetch latest changes from origin"
         },
         {
-          "exec": "git reset --hard origin/$BRANCH",
+          "exec": "git reset --hard \"origin/$BRANCH\"",
           "name": "hard reset to origin commit"
         },
         {
-          "exec": "git clean -fdx",
+          "execArgs": [
+            "git",
+            "clean",
+            "-fdx"
+          ],
           "name": "clean all untracked files"
         },
         {
@@ -95,7 +101,12 @@
       "description": "Synthesize project files",
       "steps": [
         {
-          "exec": "ts-node --project tsconfig.dev.json .projenrc.ts"
+          "execArgs": [
+            "ts-node",
+            "--project",
+            "projenrc/tsconfig.json",
+            ".projenrc.ts"
+          ]
         }
       ]
     },
@@ -104,7 +115,10 @@
       "description": "Deploys your CDK app to the AWS cloud",
       "steps": [
         {
-          "exec": "cdk deploy",
+          "execArgs": [
+            "cdk",
+            "deploy"
+          ],
           "receiveArgs": true
         }
       ]
@@ -114,7 +128,10 @@
       "description": "Destroys your cdk app in the AWS cloud",
       "steps": [
         {
-          "exec": "cdk destroy",
+          "execArgs": [
+            "cdk",
+            "destroy"
+          ],
           "receiveArgs": true
         }
       ]
@@ -124,7 +141,10 @@
       "description": "Diffs the currently deployed app against your code",
       "steps": [
         {
-          "exec": "cdk diff"
+          "execArgs": [
+            "cdk",
+            "diff"
+          ]
         }
       ]
     },
@@ -179,20 +199,15 @@
       "name": "pre-compile",
       "description": "Prepare the project for compilation"
     },
-    "prepare": {
-      "name": "prepare",
-      "steps": [
-        {
-          "exec": "npx lefthook install"
-        }
-      ]
-    },
     "synth": {
       "name": "synth",
       "description": "Synthesizes your cdk app into cdk.out",
       "steps": [
         {
-          "exec": "cdk synth"
+          "execArgs": [
+            "cdk",
+            "synth"
+          ]
         }
       ]
     },
@@ -201,7 +216,11 @@
       "description": "Synthesizes your cdk app into cdk.out and suppresses the template in stdout (part of \"yarn build\")",
       "steps": [
         {
-          "exec": "cdk synth -q"
+          "execArgs": [
+            "cdk",
+            "synth",
+            "-q"
+          ]
         }
       ]
     },
@@ -210,7 +229,11 @@
       "description": "Run tests",
       "steps": [
         {
-          "exec": "jest --passWithNoTests --updateSnapshot",
+          "execArgs": [
+            "jest",
+            "--passWithNoTests",
+            "--updateSnapshot"
+          ],
           "receiveArgs": true
         },
         {
@@ -223,7 +246,10 @@
       "description": "Run jest in watch mode",
       "steps": [
         {
-          "exec": "jest --watch"
+          "execArgs": [
+            "jest",
+            "--watch"
+          ]
         }
       ]
     },
@@ -235,16 +261,57 @@
       },
       "steps": [
         {
-          "exec": "pnpm dlx npm-check-updates@16 --upgrade --target=minor --peer --no-deprecated --dep=dev,peer,prod,optional --filter=@commitlint/config-conventional,@types/aws-lambda,@types/jest,@types/node,commitlint,cz-conventional-changelog,esbuild,jest,lefthook,projen,ts-jest,ts-node,tsconfig-paths,typescript,@middy/core"
+          "execArgs": [
+            "pnpm",
+            "dlx",
+            "npm-check-updates@20",
+            "--upgrade",
+            "--target=minor",
+            "--peer",
+            "--no-deprecated",
+            "--dep=dev,prod,peer,optional",
+            "--filter=@commitlint/config-conventional,@types/aws-lambda,@types/jest,@types/node,commitlint,cz-conventional-changelog,esbuild,jest,lefthook,projen,ts-jest,ts-node,tsconfig-paths,typescript"
+          ]
         },
         {
           "exec": "pnpm i --no-frozen-lockfile"
         },
         {
-          "exec": "pnpm update @biomejs/biome @commitlint/config-conventional @types/aws-lambda @types/jest @types/node aws-cdk commitlint cz-conventional-changelog esbuild jest jest-junit lefthook projen ts-jest ts-node tsconfig-paths typescript @aws-lambda-powertools/batch @aws-lambda-powertools/logger @aws-lambda-powertools/parameters @aws-lambda-powertools/parser @aws-lambda-powertools/tracer @aws-lambda-powertools/validation @aws-sdk/client-secrets-manager @middy/core aws-cdk-lib constructs zod"
+          "execArgs": [
+            "pnpm",
+            "update",
+            "@biomejs/biome",
+            "@commitlint/config-conventional",
+            "@types/aws-lambda",
+            "@types/jest",
+            "@types/node",
+            "aws-cdk",
+            "commitlint",
+            "cz-conventional-changelog",
+            "esbuild",
+            "jest",
+            "jest-junit",
+            "lefthook",
+            "projen",
+            "ts-jest",
+            "ts-node",
+            "tsconfig-paths",
+            "typescript",
+            "@aws-lambda-powertools/batch",
+            "@aws-lambda-powertools/logger",
+            "@aws-lambda-powertools/parameters",
+            "@aws-lambda-powertools/parser",
+            "@aws-lambda-powertools/tracer",
+            "@aws-lambda-powertools/validation",
+            "@aws-sdk/client-secrets-manager",
+            "@middy/core",
+            "aws-cdk-lib",
+            "constructs",
+            "zod"
+          ]
         },
         {
-          "exec": "npx projen"
+          "exec": "pnpm exec projen"
         },
         {
           "spawn": "post-upgrade"
@@ -256,16 +323,20 @@
       "description": "Watches changes in your source code and rebuilds and deploys to the current account",
       "steps": [
         {
-          "exec": "cdk deploy --hotswap"
+          "execArgs": [
+            "cdk",
+            "deploy",
+            "--hotswap"
+          ]
         },
         {
-          "exec": "cdk watch"
+          "execArgs": [
+            "cdk",
+            "watch"
+          ]
         }
       ]
     }
   },
-  "env": {
-    "PATH": "$(pnpm -c exec \"node --print process.env.PATH\")"
-  },
-  "//": "~~ Generated by projen. To modify, edit .projenrc.ts and run \"npx projen\"."
+  "//": "~~ Generated by projen. To modify, edit .projenrc.ts and run \"pnpm exec projen\"."
 }

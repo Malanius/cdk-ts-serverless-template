@@ -1,5 +1,5 @@
 import { BiomeOptions } from "projen/lib/javascript";
-import { IndentStyle, QuoteStyle, TrailingCommas, VcsClientKind } from "projen/lib/javascript/biome/biome-config";
+import { IndentStyle, QuoteStyle, JsTrailingCommas, VcsClientKind } from "projen/lib/javascript/biome/biome-config";
 
 export const biomeOptions: BiomeOptions = {
     biomeConfig: {
@@ -41,7 +41,7 @@ export const biomeOptions: BiomeOptions = {
       javascript: {
         formatter: {
           quoteStyle: QuoteStyle.SINGLE,
-          trailingCommas: TrailingCommas.ES5,
+          trailingCommas: JsTrailingCommas.ES5,
           bracketSpacing: true,
           lineWidth: 120,
         },

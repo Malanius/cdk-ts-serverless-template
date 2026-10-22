@@ -3,9 +3,10 @@ import { NodePackageManager } from 'projen/lib/javascript/node-package';
 import { ReleaseTrigger } from 'projen/lib/release';
 import { biomeOptions } from './.projenrc.biome';
 
-const cdkVersion = '2.215.0';
-const powertoolsVersion = '2.26.1';
-const awsSdkVersion = '3.891.0';
+const cdkVersion = '2.274.0';
+const powertoolsVersion = 'v2.36.0';
+const awsSdkVersion = '3.1155.0';
+const middyVersion = '7.9.2';
 
 const project = new awscdk.AwsCdkTypeScriptApp({
   name: 'TODO', // TODO: replace with your project name
@@ -22,11 +23,11 @@ const project = new awscdk.AwsCdkTypeScriptApp({
 
   packageManager: NodePackageManager.PNPM,
 
-  scripts: {
-    prepare: 'npx lefthook install',
-    check: 'npx @biomejs/biome check --write',
-    'check:staged': 'npx @biomejs/biome check --write --staged',
-  },
+  // scripts: {
+  //   prepare: 'npx lefthook install',
+  //   check: 'npx @biomejs/biome check --write',
+  //   'check:staged': 'npx @biomejs/biome check --write --staged',
+  // },
 
   projenrcTs: true,
   tsconfig: {
@@ -59,7 +60,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
     `@aws-lambda-powertools/validation@${powertoolsVersion}`,
     // TODO: add any other dependencies your project requires
     `@aws-sdk/client-secrets-manager@${awsSdkVersion}`,
-    '@middy/core',
+    `@middy/core@${middyVersion}`,
     'zod@~4',
   ],
   devDeps: [
