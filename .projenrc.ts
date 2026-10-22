@@ -2,7 +2,7 @@ import { awscdk } from 'projen';
 import { TypeScriptModuleResolution } from 'projen/lib/javascript';
 import { NodePackageManager } from 'projen/lib/javascript/node-package';
 import { ReleaseTrigger } from 'projen/lib/release';
-import { biomeOptions } from './.projenrc.biome';
+import { biomeOptions } from './projenrc/biome';
 
 const cdkVersion = '2.274.0';
 const powertoolsVersion = 'v2.36.0';
