@@ -56,7 +56,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   biomeOptions,
 
   lambdaOptions: {
-    runtime: awscdk.LambdaRuntime.NODEJS_22_X,
+    runtime: awscdk.LambdaRuntime.NODEJS_24_X,
     awsSdkConnectionReuse: true,
     bundlingOptions: {
       externals: [],
