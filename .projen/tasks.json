@@ -45,7 +45,51 @@
     },
     "bundle": {
       "name": "bundle",
-      "description": "Prepare assets"
+      "description": "Prepare assets",
+      "steps": [
+        {
+          "spawn": "bundle:sample-stack/sample.lambda"
+        }
+      ]
+    },
+    "bundle:sample-stack/sample.lambda": {
+      "name": "bundle:sample-stack/sample.lambda",
+      "description": "Create a JavaScript bundle from src/sample-stack/sample.lambda.ts",
+      "steps": [
+        {
+          "execArgs": [
+            "esbuild",
+            "--bundle",
+            "src/sample-stack/sample.lambda.ts",
+            "--target=node24",
+            "--platform=node",
+            "--outfile=assets/sample-stack/sample.lambda/index.js",
+            "--packages=bundle",
+            "--tsconfig=test/tsconfig.json",
+            "--sourcemap"
+          ]
+        }
+      ]
+    },
+    "bundle:sample-stack/sample.lambda:watch": {
+      "name": "bundle:sample-stack/sample.lambda:watch",
+      "description": "Continuously update the JavaScript bundle from src/sample-stack/sample.lambda.ts",
+      "steps": [
+        {
+          "execArgs": [
+            "esbuild",
+            "--bundle",
+            "src/sample-stack/sample.lambda.ts",
+            "--target=node24",
+            "--platform=node",
+            "--outfile=assets/sample-stack/sample.lambda/index.js",
+            "--packages=bundle",
+            "--tsconfig=test/tsconfig.json",
+            "--sourcemap",
+            "--watch"
+          ]
+        }
+      ]
     },
     "clobber": {
       "name": "clobber",

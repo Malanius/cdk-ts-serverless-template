@@ -51,7 +51,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
 
   lambdaOptions: {
     runtime: awscdk.LambdaRuntime.NODEJS_24_X,
-    awsSdkConnectionReuse: true,
+    awsSdkConnectionReuse: false, // not needed for sdk v3
     bundlingOptions: {
       externals: [],
       sourcemap: true,
