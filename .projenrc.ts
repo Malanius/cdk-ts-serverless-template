@@ -39,6 +39,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
       moduleResolution: TypeScriptModuleResolution.BUNDLER,
       lib: ['esnext'],
       types: ['aws-lambda', 'bun-types', 'node'],
+      typeRoots: ['./node_modules/@types', './node_modules'],
       emitDecoratorMetadata: true,
       forceConsistentCasingInFileNames: true,
       skipLibCheck: true,

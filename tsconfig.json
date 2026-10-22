@@ -33,7 +33,8 @@
     ],
     "moduleResolution": "bundler",
     "typeRoots": [
-      "./node_modules/@types"
+      "./node_modules/@types",
+      "./node_modules"
     ],
     "emitDecoratorMetadata": true,
     "forceConsistentCasingInFileNames": true,
