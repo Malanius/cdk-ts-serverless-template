@@ -2,6 +2,7 @@ import { awscdk } from 'projen';
 import { TypeScriptModuleResolution } from 'projen/lib/javascript';
 import { NodePackageManager } from 'projen/lib/javascript/node-package';
 import { ReleaseTrigger } from 'projen/lib/release';
+
 import { biomeOptions } from './projenrc/biome';
 
 const cdkVersion = '2.274.0';
@@ -63,15 +64,21 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   },
 
   deps: [
+    // AWS Lambda Powertools dependencies
     `@aws-lambda-powertools/batch@${powertoolsVersion}`,
     `@aws-lambda-powertools/logger@${powertoolsVersion}`,
     `@aws-lambda-powertools/parameters@${powertoolsVersion}`,
     `@aws-lambda-powertools/parser@${powertoolsVersion}`,
     `@aws-lambda-powertools/tracer@${powertoolsVersion}`,
     `@aws-lambda-powertools/validation@${powertoolsVersion}`,
-    // TODO: add any other dependencies your project requires
+
+    // AWS SDK dependencies
     `@aws-sdk/client-secrets-manager@${awsSdkVersion}`,
+
+    // Middy middleware dependencies
     `@middy/core@${middyVersion}`,
+
+    // TODO: add any other dependencies your project requires
     'zod@~4',
   ],
   devDeps: [
@@ -88,5 +95,9 @@ const project = new awscdk.AwsCdkTypeScriptApp({
 
 project.defaultTask?.reset('bun .projenrc.ts');
 project.compileTask.exec('bun run tsc --project tsconfig.json --noEmit');
+
+project.addTask('prepare', {
+  exec: 'bunx lefthook install',
+});
 
 project.synth();

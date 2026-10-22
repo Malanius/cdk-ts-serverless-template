@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 import { env } from 'node:process';
+
 import { App } from 'aws-cdk-lib';
+
 import { AppStage } from './stage';
 
 const appName = 'TODO'; // TODO: replace with your project name

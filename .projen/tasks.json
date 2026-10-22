@@ -199,6 +199,14 @@
       "name": "pre-compile",
       "description": "Prepare the project for compilation"
     },
+    "prepare": {
+      "name": "prepare",
+      "steps": [
+        {
+          "exec": "bunx lefthook install"
+        }
+      ]
+    },
     "synth": {
       "name": "synth",
       "description": "Synthesizes your cdk app into cdk.out",

@@ -4,7 +4,20 @@
     "actions": {
       "preset": "recommended",
       "source": {
-        "organizeImports": "on"
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              ":NODE:",
+              ":BLANK_LINE:",
+              ":PACKAGE:",
+              ":BLANK_LINE:",
+              "@/**",
+              ":BLANK_LINE:",
+              ":PATH:"
+            ]
+          }
+        }
       }
     },
     "enabled": true
@@ -30,7 +43,8 @@
   },
   "formatter": {
     "enabled": true,
-    "indentStyle": "space"
+    "indentStyle": "space",
+    "lineWidth": 120
   },
   "javascript": {
     "formatter": {
@@ -38,13 +52,15 @@
       "bracketSpacing": true,
       "lineWidth": 120,
       "trailingCommas": "es5"
+    },
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
     }
   },
   "linter": {
     "enabled": true,
     "rules": {
       "preset": "recommended",
-      "recommended": true,
       "style": {
         "noParameterAssign": "error",
         "useAsConstAssertion": "error",
