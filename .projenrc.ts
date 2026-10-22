@@ -1,4 +1,5 @@
 import { awscdk } from 'projen';
+import { TypeScriptModuleResolution } from 'projen/lib/javascript';
 import { NodePackageManager } from 'projen/lib/javascript/node-package';
 import { ReleaseTrigger } from 'projen/lib/release';
 import { biomeOptions } from './.projenrc.biome';
@@ -21,7 +22,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   defaultReleaseBranch: 'main',
   github: false,
 
-  packageManager: NodePackageManager.PNPM,
+  packageManager: NodePackageManager.BUN,
 
   // scripts: {
   //   prepare: 'npx lefthook install',
@@ -32,12 +33,22 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   projenrcTs: true,
   tsconfig: {
     compilerOptions: {
-      baseUrl: '.',
+      target: 'esnext',
+      module: 'esnext',
+      moduleResolution: TypeScriptModuleResolution.BUNDLER,
+      lib: ['esnext'],
+      types: ['aws-lambda', 'bun-types', 'node'],
+      emitDecoratorMetadata: true,
+      forceConsistentCasingInFileNames: true,
+      skipLibCheck: true,
       paths: {
-        '@/*': ['src/*'],
+        '@/*': ['./src/*'],
       },
     },
   },
+
+  // No need for jest with Bun
+  jest: false,
 
   biome: true,
   biomeOptions,
@@ -64,6 +75,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
     'zod@~4',
   ],
   devDeps: [
+    'bun-types',
     '@commitlint/config-conventional',
     '@types/aws-lambda',
     'commitlint',
@@ -74,14 +86,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   ],
 });
 
-// There is no way to directly register modules in in projen
-// So having to use escape hatch to add tsconfig-paths/register
-const cdkJson = project.tryFindObjectFile('cdk.json');
-cdkJson?.addOverride('app', 'npx ts-node -r tsconfig-paths/register --prefer-ts-exts src/main.ts');
-
-// Not sure why projen is not setting this
-project.addFields({
-  packageManager: 'pnpm@10.15.0',
-});
+project.defaultTask?.reset('bun .projenrc.ts');
+project.compileTask.exec('bun run tsc --project tsconfig.json --noEmit');
 
 project.synth();
