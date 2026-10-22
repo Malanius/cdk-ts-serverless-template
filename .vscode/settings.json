@@ -12,5 +12,6 @@
   },
   "explorer.fileNesting.patterns": {
     ".projenrc.ts": ".projenrc.*.ts"
-  }
+  },
+  "git.enabled": false
 }
