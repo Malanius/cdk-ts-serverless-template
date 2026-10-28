@@ -1,5 +1,5 @@
 import { awscdk } from 'projen';
-import { TypeScriptModuleResolution } from 'projen/lib/javascript';
+import { type AddBundleOptions, TypeScriptModuleResolution } from 'projen/lib/javascript';
 import { NodePackageManager } from 'projen/lib/javascript/node-package';
 import { ReleaseTrigger } from 'projen/lib/release';
 
@@ -10,6 +10,16 @@ const cdkVersion = '2.274.0';
 const powertoolsVersion = 'v2.36.0';
 const awsSdkVersion = '3.1155.0';
 const middyVersion = '7.9.2';
+
+const lambdaBundling = {
+  externals: [],
+  sourcemap: true,
+  mainFields: ['module', 'main'],
+  minify: true,
+  format: 'esm',
+  outfile: 'index.mjs',
+  banner: "import { createRequire } from 'node:module'; const require = createRequire(import.meta.url);",
+} satisfies Partial<AddBundleOptions>;
 
 const project = new awscdk.AwsCdkTypeScriptApp({
   name: 'TODO', // TODO: replace with your project name
@@ -53,10 +63,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   lambdaOptions: {
     runtime: awscdk.LambdaRuntime.NODEJS_24_X,
     awsSdkConnectionReuse: false, // not needed for sdk v3
-    bundlingOptions: {
-      externals: [],
-      sourcemap: true,
-    },
+    bundlingOptions: lambdaBundling,
   },
 
   deps: [

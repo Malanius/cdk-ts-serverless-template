@@ -63,10 +63,14 @@
             "src/sample-stack/sample.lambda.ts",
             "--target=node24",
             "--platform=node",
-            "--outfile=assets/sample-stack/sample.lambda/index.js",
+            "--outfile=assets/sample-stack/sample.lambda/index.mjs",
             "--packages=bundle",
             "--tsconfig=test/tsconfig.json",
-            "--sourcemap"
+            "--sourcemap",
+            "--format=esm",
+            "--minify",
+            "--banner:js=import { createRequire } from 'node:module'; const require = createRequire(import.meta.url);",
+            "--main-fields=module,main"
           ]
         }
       ]
@@ -82,10 +86,14 @@
             "src/sample-stack/sample.lambda.ts",
             "--target=node24",
             "--platform=node",
-            "--outfile=assets/sample-stack/sample.lambda/index.js",
+            "--outfile=assets/sample-stack/sample.lambda/index.mjs",
             "--packages=bundle",
             "--tsconfig=test/tsconfig.json",
             "--sourcemap",
+            "--format=esm",
+            "--minify",
+            "--banner:js=import { createRequire } from 'node:module'; const require = createRequire(import.meta.url);",
+            "--main-fields=module,main",
             "--watch"
           ]
         }
