@@ -91,6 +91,24 @@
         }
       ]
     },
+    "check": {
+      "name": "check",
+      "description": "Check the code style and formatting",
+      "steps": [
+        {
+          "exec": "bunx biome check --write"
+        }
+      ]
+    },
+    "check:staged": {
+      "name": "check:staged",
+      "description": "Check the code style and formatting for staged files",
+      "steps": [
+        {
+          "exec": "bunx biome check --write --staged"
+        }
+      ]
+    },
     "clobber": {
       "name": "clobber",
       "description": "hard resets to HEAD of origin and cleans the local repo",

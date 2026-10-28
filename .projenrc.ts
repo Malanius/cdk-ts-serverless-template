@@ -93,4 +93,14 @@ project.addTask('prepare', {
   exec: 'bunx lefthook install',
 });
 
+project.addTask('check', {
+  description: 'Check the code style and formatting',
+  exec: 'bunx biome check --write',
+});
+
+project.addTask('check:staged', {
+  description: 'Check the code style and formatting for staged files',
+  exec: 'bunx biome check --write --staged',
+});
+
 project.synth();

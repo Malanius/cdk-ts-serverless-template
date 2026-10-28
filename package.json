@@ -6,6 +6,8 @@
     "bundle": "projen bundle",
     "bundle:sample-stack/sample.lambda": "projen bundle:sample-stack/sample.lambda",
     "bundle:sample-stack/sample.lambda:watch": "projen bundle:sample-stack/sample.lambda:watch",
+    "check": "projen check",
+    "check:staged": "projen check:staged",
     "clobber": "projen clobber",
     "compile": "projen compile",
     "default": "projen default",
