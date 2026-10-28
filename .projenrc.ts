@@ -4,6 +4,7 @@ import { NodePackageManager } from 'projen/lib/javascript/node-package';
 import { ReleaseTrigger } from 'projen/lib/release';
 
 import { biomeOptions } from './projenrc/biome';
+import { context } from './projenrc/cdk';
 
 const cdkVersion = '2.274.0';
 const powertoolsVersion = 'v2.36.0';
@@ -84,6 +85,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
     'cz-conventional-changelog',
     'lefthook',
   ],
+  context,
 });
 
 project.defaultTask?.reset('bun .projenrc.ts');
