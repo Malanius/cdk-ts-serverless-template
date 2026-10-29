@@ -25,6 +25,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   name: 'TODO', // TODO: replace with your project name
   authorName: 'TODO', // TODO: replace with your name
   authorEmail: 'TODO', // TODO: replace with your email
+  license: 'MIT',
 
   cdkVersion,
   cdkVersionPinning: true,
