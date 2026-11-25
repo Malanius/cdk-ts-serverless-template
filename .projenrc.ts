@@ -62,7 +62,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   biomeOptions,
 
   lambdaOptions: {
-    runtime: awscdk.LambdaRuntime.NODEJS_24_X,
+    runtime: awscdk.LambdaRuntime.NODEJS_26_X,
     awsSdkConnectionReuse: false, // not needed for sdk v3
     bundlingOptions: lambdaBundling,
   },
@@ -88,6 +88,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
   devDeps: [
     '@commitlint/config-conventional',
     '@types/aws-lambda',
+    '@types/node@^26',
     'bun-types',
     'commitlint',
     'cz-conventional-changelog',

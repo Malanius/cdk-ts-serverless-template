@@ -36,7 +36,7 @@
     "@biomejs/biome": "^2.5",
     "@commitlint/config-conventional": "^19.8.1",
     "@types/aws-lambda": "^8.10.164",
-    "@types/node": "^24.19.4",
+    "@types/node": "^26",
     "aws-cdk": "^2",
     "bun-types": "^1.4.5",
     "commitlint": "^19.8.1",
