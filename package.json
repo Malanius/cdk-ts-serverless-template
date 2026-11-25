@@ -54,7 +54,7 @@
     "@aws-lambda-powertools/parser": "v2.37.0",
     "@aws-lambda-powertools/tracer": "v2.37.0",
     "@aws-lambda-powertools/validation": "v2.37.0",
-    "@aws-sdk/client-secrets-manager": "3.1155.0",
+    "@aws-sdk/client-secrets-manager": "3.1177.0",
     "@middy/core": "7.9.2",
     "aws-cdk-lib": "2.278.0",
     "constructs": "^10.5.1",

@@ -86,7 +86,7 @@
     },
     {
       "name": "@aws-sdk/client-secrets-manager",
-      "version": "3.1155.0",
+      "version": "3.1177.0",
       "type": "runtime"
     },
     {
