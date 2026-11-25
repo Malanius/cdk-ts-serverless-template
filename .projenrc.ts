@@ -7,7 +7,7 @@ import { biomeOptions } from './projenrc/biome';
 import { context } from './projenrc/cdk';
 
 const cdkVersion = '2.278.0';
-const powertoolsVersion = 'v2.36.0';
+const powertoolsVersion = 'v2.37.0';
 const awsSdkVersion = '3.1155.0';
 const middyVersion = '7.9.2';
 

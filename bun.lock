@@ -5,12 +5,12 @@
     "": {
       "name": "TODO",
       "dependencies": {
-        "@aws-lambda-powertools/batch": "v2.36.0",
-        "@aws-lambda-powertools/logger": "v2.36.0",
-        "@aws-lambda-powertools/parameters": "v2.36.0",
-        "@aws-lambda-powertools/parser": "v2.36.0",
-        "@aws-lambda-powertools/tracer": "v2.36.0",
-        "@aws-lambda-powertools/validation": "v2.36.0",
+        "@aws-lambda-powertools/batch": "v2.37.0",
+        "@aws-lambda-powertools/logger": "v2.37.0",
+        "@aws-lambda-powertools/parameters": "v2.37.0",
+        "@aws-lambda-powertools/parser": "v2.37.0",
+        "@aws-lambda-powertools/tracer": "v2.37.0",
+        "@aws-lambda-powertools/validation": "v2.37.0",
         "@aws-sdk/client-secrets-manager": "3.1155.0",
         "@middy/core": "7.9.2",
         "aws-cdk-lib": "2.278.0",
@@ -41,21 +41,21 @@
 
     "@aws-cdk/cloud-assembly-schema": ["@aws-cdk/cloud-assembly-schema@55.6.0", "", { "dependencies": { "jsonschema": "^1.5.0", "semver": "^7.8.6" } }, "sha512-gvgzQtc0ZEcYc8WXMyCfbwJ1xlGWM/X6rG5gEiCSqT8c7e31c4tVQ5nhdgztKJ+E0UL4BCsVN0s/3YP62NJ/yg=="],
 
-    "@aws-lambda-powertools/batch": ["@aws-lambda-powertools/batch@2.36.0", "", { "dependencies": { "@aws-lambda-powertools/commons": "2.36.0", "@standard-schema/spec": "1.1.0" } }, "sha512-FXflvdV+rSzuP57LZg4JGUyZacSeVXuY82TpDKASYdFpaGBI8eJ1pYR6XYsdW+tcV/wykIzHI6kjY5Fyt3Z9fQ=="],
+    "@aws-lambda-powertools/batch": ["@aws-lambda-powertools/batch@2.37.0", "", { "dependencies": { "@aws-lambda-powertools/commons": "2.37.0", "@standard-schema/spec": "^1.1.0" } }, "sha512-rOIbpSspYEN5EJPGvclw1gatFDL57uLzHdun3ipquXyhIJSaX/mgRiJzTv6eBBpfe0zklKD28A9XtUwnVJLQ5A=="],
 
-    "@aws-lambda-powertools/commons": ["@aws-lambda-powertools/commons@2.36.0", "", { "dependencies": { "@aws/lambda-invoke-store": "0.3.0" } }, "sha512-rYkMu22qpi9wVWCcj51qMj2eKIFyxzpG5Rsasckjq6MPNzafLk/0G/VhFUY536gjWsgwVKZDuM3jMOsdVJFChw=="],
+    "@aws-lambda-powertools/commons": ["@aws-lambda-powertools/commons@2.37.0", "", { "dependencies": { "@aws/lambda-invoke-store": "0.3.0" } }, "sha512-YT+yg8u8EMU5szM0howYP7j3r/fIzDjuf8A8NWu8IK3rCHin+7q4A2b1vqkKQJRnQHFm6deSYVtf403eCIEFDg=="],
 
-    "@aws-lambda-powertools/jmespath": ["@aws-lambda-powertools/jmespath@2.36.0", "", { "dependencies": { "@aws-lambda-powertools/commons": "2.36.0" } }, "sha512-Zs0gZDamR59Yf5Hf2B3p5QPXeR8/Z7yjSHkU8C3Oc3xpISJIltZCZZ9VLNCzn6EQWegPPnIR/m7oDS+8hmRzsQ=="],
+    "@aws-lambda-powertools/jmespath": ["@aws-lambda-powertools/jmespath@2.37.0", "", { "dependencies": { "@aws-lambda-powertools/commons": "2.37.0" } }, "sha512-svqTeSLMt6qyWdTPPO/SMcZSx0j3o91vYQ3eHJLcHAthgSLZ5Ih1GgWcwNPPuiAzrQ0UxVNMAufVO4w2Nw/LJg=="],
 
-    "@aws-lambda-powertools/logger": ["@aws-lambda-powertools/logger@2.36.0", "", { "dependencies": { "@aws-lambda-powertools/commons": "2.36.0" }, "peerDependencies": { "@aws-lambda-powertools/jmespath": "2.36.0", "@middy/core": "4.x || 5.x || 6.x || 7.x" }, "optionalPeers": ["@aws-lambda-powertools/jmespath", "@middy/core"] }, "sha512-NQrZd6bJNw2CL7DlwU7ta6ktxGIbvyga8znuHRlIAAqRjkpC8pYtfXkYDUEQZGqhTeVS6+tU3YxszHuOB/1nkg=="],
+    "@aws-lambda-powertools/logger": ["@aws-lambda-powertools/logger@2.37.0", "", { "dependencies": { "@aws-lambda-powertools/commons": "2.37.0" }, "peerDependencies": { "@aws-lambda-powertools/jmespath": "2.37.0", "@middy/core": "4.x || 5.x || 6.x || 7.x" }, "optionalPeers": ["@aws-lambda-powertools/jmespath", "@middy/core"] }, "sha512-1Z+1AhvBlW5qIDcCwv4YjWXe/vRWge+ARxpawqgRdTbsyST4eClR8EridibjV/yC38VtsEMnZkZLuYkf8JD5/w=="],
 
-    "@aws-lambda-powertools/parameters": ["@aws-lambda-powertools/parameters@2.36.0", "", { "dependencies": { "@aws-lambda-powertools/commons": "2.36.0" }, "peerDependencies": { "@aws-sdk/client-appconfigdata": ">=3.x", "@aws-sdk/client-dynamodb": ">=3.x", "@aws-sdk/client-secrets-manager": ">=3.x", "@aws-sdk/client-ssm": ">=3.x", "@aws-sdk/util-dynamodb": ">=3.x", "@middy/core": "4.x || 5.x || 6.x || 7.x" }, "optionalPeers": ["@aws-sdk/client-appconfigdata", "@aws-sdk/client-dynamodb", "@aws-sdk/client-secrets-manager", "@aws-sdk/client-ssm", "@aws-sdk/util-dynamodb", "@middy/core"] }, "sha512-345x5em64yHy/7qFWqDa1aY5dESyNhz4xFOjfMcdXS3UIopNt7zSkfpzfszbp3kgLUeLtcYU6akkB9NBbYHRUQ=="],
+    "@aws-lambda-powertools/parameters": ["@aws-lambda-powertools/parameters@2.37.0", "", { "dependencies": { "@aws-lambda-powertools/commons": "2.37.0" }, "peerDependencies": { "@aws-sdk/client-appconfigdata": ">=3.x", "@aws-sdk/client-dynamodb": ">=3.x", "@aws-sdk/client-secrets-manager": ">=3.x", "@aws-sdk/client-ssm": ">=3.x", "@aws-sdk/util-dynamodb": ">=3.x", "@middy/core": "4.x || 5.x || 6.x || 7.x" }, "optionalPeers": ["@aws-sdk/client-appconfigdata", "@aws-sdk/client-dynamodb", "@aws-sdk/client-secrets-manager", "@aws-sdk/client-ssm", "@aws-sdk/util-dynamodb", "@middy/core"] }, "sha512-jkWUUrjEyK46/O2J0oPWt+moTRrR+V4TEUrrjLF1oWMIw4xXG5r1qEOmFFExdnCY/fqiWVsLsGOsQ0UZCC7w9Q=="],
 
-    "@aws-lambda-powertools/parser": ["@aws-lambda-powertools/parser@2.36.0", "", { "dependencies": { "@aws-lambda-powertools/commons": "2.36.0", "@standard-schema/spec": "1.1.0" }, "peerDependencies": { "@middy/core": "4.x || 5.x || 6.x || 7.x", "zod": "4.x" }, "optionalPeers": ["@middy/core", "zod"] }, "sha512-FM69RglNTd9pB/mTIOEMMh/LjqROd8jC0GjdwXHK6OKso0tEpCN+FGVM6RS5Iznb5GhD2UTd3w0dsGBpDTzRSg=="],
+    "@aws-lambda-powertools/parser": ["@aws-lambda-powertools/parser@2.37.0", "", { "dependencies": { "@aws-lambda-powertools/commons": "2.37.0", "@standard-schema/spec": "^1.1.0" }, "peerDependencies": { "@middy/core": "4.x || 5.x || 6.x || 7.x", "zod": "4.x" }, "optionalPeers": ["@middy/core", "zod"] }, "sha512-zL5jiI/5yGIS03vVboIjHTHW7/wNMU26rPnYcN5u/jkvDSwl+LGjYa+OmTyJjvBHv1sDGbAPabfyhI5XppBJDA=="],
 
-    "@aws-lambda-powertools/tracer": ["@aws-lambda-powertools/tracer@2.36.0", "", { "dependencies": { "@aws-lambda-powertools/commons": "2.36.0", "@aws/lambda-invoke-store": "0.3.0", "aws-xray-sdk-core": "3.12.0" }, "peerDependencies": { "@middy/core": "4.x || 5.x || 6.x || 7.x" }, "optionalPeers": ["@middy/core"] }, "sha512-HWloHxjdAOYjAK6WmI8WiwNw+ke6vtJXTBnMRp8oCrcfne5Z+gmjNp24ls0NLKwnR+e8B160t9Nnjn98DAVK+g=="],
+    "@aws-lambda-powertools/tracer": ["@aws-lambda-powertools/tracer@2.37.0", "", { "dependencies": { "@aws-lambda-powertools/commons": "2.37.0", "@aws/lambda-invoke-store": "0.3.0", "aws-xray-sdk-core": "^3.12.0" }, "peerDependencies": { "@middy/core": "4.x || 5.x || 6.x || 7.x" }, "optionalPeers": ["@middy/core"] }, "sha512-LQ2UCNEU1vc15hDKbttjAm3OKDJxvj6JgR2XzF56OSq4faTEQ+N9+rMirmwYCvd7xD76+phEfk6LPQtglBhIZQ=="],
 
-    "@aws-lambda-powertools/validation": ["@aws-lambda-powertools/validation@2.36.0", "", { "dependencies": { "@aws-lambda-powertools/commons": "2.36.0", "@aws-lambda-powertools/jmespath": "2.36.0", "ajv": "8.20.0" } }, "sha512-0z0o3mCyKnWTj5Se5PHzRPEAh8EwHV1bef4YSgCk3Vf0JQEk294l08QvyDZZ4fhaGCTBvFpe7MgnDYUJAysWvg=="],
+    "@aws-lambda-powertools/validation": ["@aws-lambda-powertools/validation@2.37.0", "", { "dependencies": { "@aws-lambda-powertools/commons": "2.37.0", "@aws-lambda-powertools/jmespath": "2.37.0", "ajv": "^8.20.0" } }, "sha512-8NCkA+k4RkNEA2gtfTFA9n15Vnt/++q2Zw1lxzS6ds6oD37mE9ewMoNVIGw3GtaKj5V52497UUNp0nG5+hRKXw=="],
 
     "@aws-sdk/client-secrets-manager": ["@aws-sdk/client-secrets-manager@3.1155.0", "", { "dependencies": { "@aws-sdk/core": "3.978.5", "@aws-sdk/credential-provider-node": "3.972.88", "@aws-sdk/types": "3.975.0", "@smithy/core": "3.36.2", "@smithy/fetch-http-handler": "5.8.0", "@smithy/node-http-handler": "4.12.1", "@smithy/types": "4.19.0", "tslib": "2.8.1" } }, "sha512-Y3LUtxo/027dxgLm4agqlTGCr1ucK1oSgp4Fv5bDYkahP52Q0qp5be8lVAwn7Lef/jRHGvpV4CwmrY4ZCJTtJQ=="],
 
