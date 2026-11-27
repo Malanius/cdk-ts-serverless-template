@@ -1,10 +1,11 @@
 import type { CdkConfigCommonOptions } from 'projen/lib/awscdk';
 
-// Defaults from CDK 2.273.0
+// Defaults from CDK 2.278.0
 export const context: CdkConfigCommonOptions['context'] = {
   '@aws-cdk-containers/ecs-service-extensions:enableDefaultLogDriver': true,
   '@aws-cdk/aws-apigateway:authorizerChangeDeploymentLogicalId': true,
   '@aws-cdk/aws-apigateway:disableCloudWatchRole': true,
+  '@aws-cdk/aws-apigateway:logGroupDestinationArnWithoutWildcard': true,
   '@aws-cdk/aws-apigateway:requestValidatorUniqueId': true,
   '@aws-cdk/aws-appsync:appSyncGraphQLAPIScopeLambdaPermission': true,
   '@aws-cdk/aws-appsync:useArnForSourceApiAssociationIdentifier': true,
@@ -45,6 +46,7 @@ export const context: CdkConfigCommonOptions['context'] = {
   '@aws-cdk/aws-events:eventsTargetQueueSameAccount': true,
   '@aws-cdk/aws-events:requireEventBusPolicySid': true,
   '@aws-cdk/aws-iam:importedRoleStackSafeDefaultPolicyName': true,
+  '@aws-cdk/aws-iam:importedUserAndGroupStackSafeDefaultPolicyName': true,
   '@aws-cdk/aws-iam:minimizePolicies': true,
   '@aws-cdk/aws-iam:oidcRejectUnauthorizedConnections': true,
   '@aws-cdk/aws-kms:aliasNameRef': true,

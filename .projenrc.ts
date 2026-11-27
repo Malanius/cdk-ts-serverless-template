@@ -99,6 +99,7 @@ const project = new awscdk.AwsCdkTypeScriptApp({
 
 project.defaultTask?.reset('bun .projenrc.ts');
 project.compileTask.exec('bun run tsc --project tsconfig.json --noEmit');
+project.testTask.exec('bun test');
 project.cdkConfig.json.addOverride('build', 'bunx projen compile && bunx projen bundle');
 
 project.addTask('prepare', {

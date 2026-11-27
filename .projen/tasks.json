@@ -304,6 +304,9 @@
       "steps": [
         {
           "spawn": "biome"
+        },
+        {
+          "exec": "bun test"
         }
       ]
     },

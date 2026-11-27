@@ -24,7 +24,16 @@ export const biomeOptions: BiomeOptions = {
           organizeImports: {
             level: 'on',
             options: {
-              groups: [':NODE:', ':BLANK_LINE:', ':PACKAGE:', ':BLANK_LINE:', '@/**', ':BLANK_LINE:', ':PATH:'],
+              groups: [
+                ':BUN:',
+                ':NODE:',
+                ':BLANK_LINE:',
+                ':PACKAGE:',
+                ':BLANK_LINE:',
+                '@/**',
+                ':BLANK_LINE:',
+                ':PATH:',
+              ],
             },
           },
         },
